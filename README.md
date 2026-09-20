@@ -57,6 +57,8 @@ Any OpenAI-compatible endpoint works, including Ollama, LM Studio and vLLM.
 CodeCraft is the one I'd recommend here. The per-minute rate limits on free tiers are what break this setup, and a large monthly budget sidesteps that entirely. `gemini-3.7-flash` through it is what this config is tested against.
 
 > Sign-up link: **[codecraftapi.com/?ref=CC5TY2BW](https://codecraftapi.com/?ref=CC5TY2BW)** — that's a referral link. Plain `codecraftapi.com` works the same if you'd rather not use it.
+>
+> Coupon code **`DEVWEEK`** — applies to the **Basic plan only**. Enter it at checkout.
 
 ### 4. Create the config
 
