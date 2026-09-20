@@ -48,10 +48,13 @@ Don't run a model locally unless you want it eating your RAM and GPU permanently
 
 | Provider | Where | Notes |
 |---|---|---|
+| **CodeCraft API** | [codecraftapi.com](https://codecraftapi.com) | **What this setup uses.** One key, 30+ models (Gemini, Claude, GPT, DeepSeek, Qwen, Kimi). Generous monthly token budget, so no per-minute throttling |
 | Groq | console.groq.com/keys | Free, no card. **Low rate limit** — see gotchas |
 | Google Gemini | aistudio.google.com/apikey | Free, no card. Also unlocks PDF/image ingestion |
 
 Any OpenAI-compatible endpoint works, including Ollama, LM Studio and vLLM.
+
+CodeCraft is the one I'd recommend here. The per-minute rate limits on free tiers are what break this setup, and a large monthly budget sidesteps that entirely. `gemini-3.7-flash` through it is what this config is tested against.
 
 ### 4. Create the config
 
@@ -116,9 +119,9 @@ nano ~/.supermemory/env
 ```
 
 ```bash
-OPENAI_BASE_URL=https://api.groq.com/openai/v1   # <- provider endpoint
-OPENAI_API_KEY=gsk_xxxxxxxxxxxx                  # <- YOUR API KEY GOES HERE
-OPENAI_MODEL=qwen/qwen3.8-27b                    # <- MODEL NAME GOES HERE
+OPENAI_BASE_URL=https://codecraftapi.com/v1   # <- provider endpoint
+OPENAI_API_KEY=cc_xxxxxxxxxxxx                # <- YOUR API KEY GOES HERE
+OPENAI_MODEL=gemini-3.7-flash                 # <- MODEL NAME GOES HERE
 SUPERMEMORY_DATA_DIR=/home/<user>/.supermemory/data
 ```
 
@@ -128,10 +131,17 @@ Example endpoints:
 
 | Provider | `OPENAI_BASE_URL` | Example `OPENAI_MODEL` |
 |---|---|---|
+| **CodeCraft API** | `https://codecraftapi.com/v1` | `gemini-3.7-flash` |
 | Groq | `https://api.groq.com/openai/v1` | `qwen/qwen3.8-27b` |
 | OpenAI | `https://api.openai.com/v1` | `gpt-4.1-mini` |
 | Ollama (local) | `http://localhost:11434/v1` | `qwen3:8b` |
 | Any other | whatever they give you | whatever they list |
+
+To list every model a provider offers:
+
+```bash
+curl -s https://codecraftapi.com/v1/models -H "Authorization: Bearer YOUR_KEY"
+```
 
 For Google Gemini directly, use `GEMINI_API_KEY=...` instead of the three `OPENAI_*` lines.
 
