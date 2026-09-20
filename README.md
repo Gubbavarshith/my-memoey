@@ -48,13 +48,15 @@ Don't run a model locally unless you want it eating your RAM and GPU permanently
 
 | Provider | Where | Notes |
 |---|---|---|
-| **CodeCraft API** | [codecraftapi.com](https://codecraftapi.com) | **What this setup uses.** One key, 30+ models (Gemini, Claude, GPT, DeepSeek, Qwen, Kimi). Generous monthly token budget, so no per-minute throttling |
+| **CodeCraft API** | [codecraftapi.com](https://codecraftapi.com/?ref=CC5TY2BW) | **What this setup uses.** One key, 30+ models (Gemini, Claude, GPT, DeepSeek, Qwen, Kimi). Generous monthly token budget, so no per-minute throttling |
 | Groq | console.groq.com/keys | Free, no card. **Low rate limit** — see gotchas |
 | Google Gemini | aistudio.google.com/apikey | Free, no card. Also unlocks PDF/image ingestion |
 
 Any OpenAI-compatible endpoint works, including Ollama, LM Studio and vLLM.
 
 CodeCraft is the one I'd recommend here. The per-minute rate limits on free tiers are what break this setup, and a large monthly budget sidesteps that entirely. `gemini-3.7-flash` through it is what this config is tested against.
+
+> Sign-up link: **[codecraftapi.com/?ref=CC5TY2BW](https://codecraftapi.com/?ref=CC5TY2BW)** — that's a referral link. Plain `codecraftapi.com` works the same if you'd rather not use it.
 
 ### 4. Create the config
 
